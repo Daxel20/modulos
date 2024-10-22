@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Horarios</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Incluye tu archivo CSS -->
+</head>
+
+<body>
+    <div class="container">
+        <h1>Gestión de Horarios</h1>
+
+        <!-- Formulario para agregar o editar un horario -->
+        <form th:action="@{/horario/guardarHorario}" th:object="${horario}" method="post">
+            <input type="hidden" th:field="*{idHorarios}" />
+            <div class="form-group">
+                <label for="dias">Días:</label>
+                <input type="text" id="dias" th:field="*{Dias}" required />
+            </div>
+            <div class="form-group">
+                <label for="horas">Horas:</label>
+                <input type="text" id="horas" th:field="*{Horas}" required />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn">Guardar</button>
+            </div>
+        </form>
+
+        <h2>Lista de Horarios</h2>
+        <table class="neon-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Días</th>
+                    <th>Horas</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="horario : ${horarios}">
+                    <td th:text="${horario.idHorarios}"></td>
+                    <td th:text="${horario.Dias}"></td>
+                    <td th:text="${horario.Horas}"></td>
+                    <td>
+                        <a class="action-btn" th:href="@{/horario/editar/{idHorarios}(idHorarios=${horario.idHorarios})}">Editar</a> |
+                        <a class="action-btn delete" th:href="@{/horario/delete/{idHorarios}(idHorarios=${horario.idHorarios})}" onclick="return confirm('¿Estás seguro de que quieres eliminar este horario?');">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="/">
+            <button type="button">Volver</button>
+        </a>
+    </div>
+</body>
+
+</html>

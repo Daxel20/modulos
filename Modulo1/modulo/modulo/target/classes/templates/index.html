@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Portal Escolar</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos para centrar el contenido */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container-scroller {
+            text-align: center;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin: 20px 0;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            font-size: 20px;
+            color: #fffcfc;
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .sidebar a:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-scroller">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <ul>
+                <li>
+                    <a href="/estudiante">Estudiantes</a>
+                </li>
+                <li>
+                    <a href="/profesor">Profesores</a>
+                </li>
+                <li>
+                    <a href="/curso">Cursos</a>
+                </li>
+                <li>
+                    <a href="/horario">Horarios</a>
+                </li>
+                <li>
+                    <a href="/inscripcion">Inscripciones</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</body>
+
+</html>
